@@ -1,37 +1,24 @@
-import 'package:projeto1/variaveis.dart' as projeto1;
+import 'dart:convert';
+import 'dart:io';
 
 void main(List<String> arguments) {
+  print("Informe a primeira nota: ");
+  var line = stdin.readLineSync(encoding: utf8);
+  var prova1 = int.parse(line ?? "0");
 
+  print("Informe a segunda nota: ");
+  line = stdin.readLineSync(encoding: utf8);
+  var prova2 = int.parse(line ?? "0");
 
-  print(projeto1.texto);
-  print(projeto1.texto2);
-
-  print("Retorna se o número é par:");
-  print(projeto1.numero1.isEven);
-  print(projeto1.numero2.isEven);
-  print(projeto1.numero3.isEven);
-  print("Retorna se o número é impar: ");
-  print(projeto1.numero1.isOdd);
-  print(projeto1.numero2.isOdd);
-  print(projeto1.numero3.isOdd);
-
-  print(projeto1.numero1.isFinite);
-  print(projeto1.numero1.isInfinite);
-  print(projeto1.numero1.isNaN);
-
-  print("Retorna se o número é negativo: ");
-  print((projeto1.numero1 - 1).isNegative);
-
-  print("Converte String para inteiro: ");
-  print(int.parse("10"));
-  print(int.tryParse("teste"));
-
-  List<String> lista = ["Rauane", "Jos[é]", "Luana"];
-  lista.add("Luma");
-  var lista2 = [];
-  lista2.add("A");
-
-  print(lista);
-
-  
+  var media = (prova1 + prova2) / 2;
+  if (media >= 7) {
+    print("Notas: $prova1 | $prova2");
+    print("O aluno passou com a nota: $media");
+  } else if (media >= 5) {
+    print("Notas: $prova1 | $prova2");
+    print("O aluno está de recuperação com a nota: $media");
+  } else {
+    print("Notas: $prova1 | $prova2");
+    print("O aluno reprovou com a nota: $media");
+  }
 }
